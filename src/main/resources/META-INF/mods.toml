@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="CC BY-NC-SA"
+
+[[mods]]
+modId="bots"
+version="1.0"
+displayName="Bots"
+credits="You cannot redistribute this mod without my agreement but you can use it in modpacks"
+displayURL="https://github.com/SiniKraft/bots"
+authors="SiniKraft"
+description='''
+Add easy programmable bots to minecraft !
+'''
+
+[[dependencies.bots]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+

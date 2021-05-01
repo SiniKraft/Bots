@@ -1,0 +1,33 @@
+{
+  "id_map": {},
+  "mod_elements": [],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {}
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "bots",
+    "modName": "Bots",
+    "version": "1.0",
+    "description": "Add easy programmable bots to minecraft !",
+    "author": "SiniKraft",
+    "websiteURL": "https://github.com/SiniKraft/bots",
+    "license": "CC BY-NC-SA",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.16.5",
+    "credits": "You cannot redistribute this mod without my agreement but you can use it in modpacks",
+    "modElementsPackage": "fr.sinikraft.bots",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202100116710
+}
