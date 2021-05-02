@@ -1,0 +1,9 @@
+{
+  "parent": "bots:custom/battery_charger",
+  "textures": {
+    "all": "bots:blocks/battery",
+    "particle": "bots:blocks/battery",
+    "0": "bots:blocks/iron_block",
+    "2": "bots:blocks/invis"
+  }
+}

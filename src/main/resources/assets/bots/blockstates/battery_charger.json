@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bots:block/battery_charger"
+    },
+    "facing=east": {
+      "model": "bots:block/battery_charger",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "bots:block/battery_charger",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bots:block/battery_charger",
+      "y": 270
+    }
+  }
+}

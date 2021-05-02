@@ -1,0 +1,122 @@
+{
+	"credit": "Made with Blockbench for SiniKraft's bots mod",
+	"textures": {
+		"0": "iron_block",
+		"2": "battery",
+		"particle": "iron_block"
+	},
+	"elements": [
+		{
+			"name": "main_box",
+			"from": [4, 0, 5],
+			"to": [12, 16, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 7, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [9, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 9, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 7], "texture": "#0"}
+			}
+		},
+		{
+			"name": "high_left_front_box",
+			"from": [11, 9, 4],
+			"to": [12, 16, 5],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 7], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 7], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 7], "texture": "#0"},
+				"up": {"uv": [0, 0, 2, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "high_right_front_box",
+			"from": [4, 9, 4],
+			"to": [5, 16, 5],
+			"faces": {
+				"north": {"uv": [14, 0, 16, 7], "texture": "#0"},
+				"east": {"uv": [15, 0, 16, 7], "texture": "#0"},
+				"west": {"uv": [15, 0, 16, 7], "texture": "#0"},
+				"up": {"uv": [14, 0, 16, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "high_top_front_box",
+			"from": [5, 15, 4],
+			"to": [11, 16, 5],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 1], "texture": "#0"},
+				"up": {"uv": [2, 0, 14, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "battery",
+			"from": [5, 9, 4.5],
+			"to": [11, 15, 5.5],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#2"}
+			}
+		},
+		{
+			"name": "down_front_box",
+			"from": [4, 0, 4],
+			"to": [12, 9, 5],
+			"faces": {
+				"north": {"uv": [0, 7, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 7, 1, 16], "texture": "#0"},
+				"west": {"uv": [15, 7, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 15, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 1], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -135, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, -135, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"head": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "battery_charger",
+			"origin": [8, 8, 8],
+			"children": [0,
+				{
+					"name": "high_front_box",
+					"origin": [8, 8, 8],
+					"children": [1, 2, 3, 4, 5]
+				}
+			]
+		}
+	]
+}

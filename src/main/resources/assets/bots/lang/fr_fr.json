@@ -1,4 +1,6 @@
 {
   "block.bots.bot_station": "Station de robot",
+  "item.bots.battery": "Battery",
+  "block.bots.battery_charger": "Battery Charger",
   "itemGroup.tabbots": "Bots"
 }

@@ -57,6 +57,59 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "station_energy"
+    },
+    {
+      "name": "BotStationRecipe",
+      "type": "recipe",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "bot_station_recipe"
+    },
+    {
+      "name": "Battery",
+      "type": "item",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "battery"
+    },
+    {
+      "name": "BatteryItemInInventoryTick",
+      "type": "procedure",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "battery_item_in_inventory_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BatteryRecipe",
+      "type": "recipe",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "battery_recipe"
+    },
+    {
+      "name": "BatteryCharger",
+      "type": "block",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "battery_charger"
     }
   ],
   "variable_elements": [],
@@ -64,10 +117,14 @@
   "language_map": {
     "en_us": {
       "block.bots.bot_station": "Bot Station",
+      "item.bots.battery": "Battery",
+      "block.bots.battery_charger": "Battery Charger",
       "itemGroup.tabbots": "Bots"
     },
     "fr_fr": {
       "block.bots.bot_station": "Station de robot",
+      "item.bots.battery": "Battery",
+      "block.bots.battery_charger": "Battery Charger",
       "itemGroup.tabbots": "Bots"
     }
   },

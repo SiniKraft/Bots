@@ -1,0 +1,18 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "iron_block",
+        "2": "invis"
+      },
+      "name": "default"
+    },
+    "charging": {
+      "map": {
+        "0": "iron_block",
+        "2": "battery"
+      },
+      "name": "charging"
+    }
+  }
+}
