@@ -38,7 +38,6 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.BooleanProperty;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.nbt.CompoundNBT;
@@ -75,6 +74,7 @@ import java.util.List;
 import java.util.Collections;
 
 import fr.sinikraft.bots.procedures.BotStationParticleSpawningConditionProcedure;
+import fr.sinikraft.bots.particle.StationEnergyParticle;
 import fr.sinikraft.bots.itemgroup.BotsItemGroup;
 import fr.sinikraft.bots.BotsModElements;
 
@@ -128,22 +128,24 @@ public class BotStationBlock extends BotsModElements.ModElement {
 			switch ((Direction) state.get(FACING)) {
 				case SOUTH :
 				default :
-					return VoxelShapes.or(makeCuboidShape(1, 0, 16, 0, 10, 0), makeCuboidShape(16, 0, 16, 15, 10, 0),
-							makeCuboidShape(16, 0, 1, 0, 10, 0), makeCuboidShape(5, 1, 3, 14, 2, 1), makeCuboidShape(12, 1, 3, 11, 2, 1))
+					return VoxelShapes
+							.or(makeCuboidShape(1, 0, 16, 0, 10, 0), makeCuboidShape(16, 0, 16, 15, 10, 0), makeCuboidShape(16, 0, 1, 0, 10, 0),
+									makeCuboidShape(5, 1, 3, 4, 2, 1), makeCuboidShape(12, 1, 3, 11, 2, 1), makeCuboidShape(16, 0, 16, 0, 1, 0))
 							.withOffset(offset.x, offset.y, offset.z);
 				case NORTH :
 					return VoxelShapes
 							.or(makeCuboidShape(15, 0, 0, 16, 10, 16), makeCuboidShape(0, 0, 0, 1, 10, 16), makeCuboidShape(0, 0, 15, 16, 10, 16),
-									makeCuboidShape(11, 1, 13, 2, 2, 15), makeCuboidShape(4, 1, 13, 5, 2, 15))
+									makeCuboidShape(11, 1, 13, 12, 2, 15), makeCuboidShape(4, 1, 13, 5, 2, 15), makeCuboidShape(0, 0, 0, 16, 1, 16))
 							.withOffset(offset.x, offset.y, offset.z);
 				case EAST :
-					return VoxelShapes.or(makeCuboidShape(16, 0, 15, 0, 10, 16), makeCuboidShape(16, 0, 0, 0, 10, 1),
-							makeCuboidShape(1, 0, 0, 0, 10, 16), makeCuboidShape(3, 1, 11, 1, 2, 2), makeCuboidShape(3, 1, 4, 1, 2, 5))
+					return VoxelShapes
+							.or(makeCuboidShape(16, 0, 15, 0, 10, 16), makeCuboidShape(16, 0, 0, 0, 10, 1), makeCuboidShape(1, 0, 0, 0, 10, 16),
+									makeCuboidShape(3, 1, 11, 1, 2, 12), makeCuboidShape(3, 1, 4, 1, 2, 5), makeCuboidShape(16, 0, 0, 0, 1, 16))
 							.withOffset(offset.x, offset.y, offset.z);
 				case WEST :
 					return VoxelShapes
 							.or(makeCuboidShape(0, 0, 1, 16, 10, 0), makeCuboidShape(0, 0, 16, 16, 10, 15), makeCuboidShape(15, 0, 16, 16, 10, 0),
-									makeCuboidShape(13, 1, 5, 15, 2, 14), makeCuboidShape(13, 1, 12, 15, 2, 11))
+									makeCuboidShape(13, 1, 5, 15, 2, 4), makeCuboidShape(13, 1, 12, 15, 2, 11), makeCuboidShape(0, 0, 16, 16, 1, 0))
 							.withOffset(offset.x, offset.y, offset.z);
 			}
 		}
@@ -211,7 +213,7 @@ public class BotStationBlock extends BotsModElements.ModElement {
 					double d3 = (random.nextFloat() - 0.5D) * 0.5D;
 					double d4 = (random.nextFloat() - 0.5D) * 0.5D;
 					double d5 = (random.nextFloat() - 0.5D) * 0.5D;
-					world.addParticle(ParticleTypes.EXPLOSION, d0, d1, d2, d3, d4, d5);
+					world.addParticle(StationEnergyParticle.particle, d0, d1, d2, d3, d4, d5);
 				}
 		}
 

@@ -48,6 +48,15 @@
           }
         ]
       }
+    },
+    {
+      "name": "StationEnergy",
+      "type": "particle",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "station_energy"
     }
   ],
   "variable_elements": [],
