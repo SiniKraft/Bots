@@ -2,6 +2,7 @@ package fr.sinikraft.bots.procedures;
 
 import net.minecraft.item.ItemStack;
 
+import java.util.Random;
 import java.util.Map;
 
 import fr.sinikraft.bots.BotsModElements;
@@ -21,7 +22,14 @@ public class BatteryItemInInventoryTickProcedure extends BotsModElements.ModElem
 		}
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		if ((!((((itemstack)).getDamage()) == (100 - ((itemstack).getOrCreateTag().getDouble("energy")))))) {
-			((itemstack)).setDamage((int) (100 - ((itemstack).getOrCreateTag().getDouble("energy"))));
+			((itemstack)).setDamage((int) 100);
+			{
+				ItemStack _ist = (itemstack);
+				if (_ist.attemptDamageItem((int) (100 - ((itemstack).getOrCreateTag().getDouble("energy"))), new Random(), null)) {
+					_ist.shrink(1);
+					_ist.setDamage(0);
+				}
+			}
 		}
 	}
 }

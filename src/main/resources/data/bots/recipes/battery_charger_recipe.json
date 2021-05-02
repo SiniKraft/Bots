@@ -1,0 +1,24 @@
+{
+  "group": "bots",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:redstone_block"
+    },
+    "1": {
+      "item": "minecraft:iron_block"
+    },
+    "2": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "bots:battery_charger",
+    "count": 1
+  }
+}

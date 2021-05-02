@@ -31,7 +31,7 @@ public class BatteryItem extends BotsModElements.ModElement {
 	}
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(BotsItemGroup.tab).maxStackSize(1).rarity(Rarity.COMMON));
+			super(new Item.Properties().group(BotsItemGroup.tab).maxDamage(101).rarity(Rarity.COMMON));
 			setRegistryName("battery");
 		}
 

@@ -4,6 +4,6 @@
     "all": "bots:blocks/battery",
     "particle": "bots:blocks/iron_block",
     "0": "bots:blocks/iron_block",
-    "2": "bots:blocks/invis"
+    "2": "bots:blocks/battery"
   }
 }

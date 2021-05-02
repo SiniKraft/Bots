@@ -110,6 +110,90 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "battery_charger"
+    },
+    {
+      "name": "BatteryChargerRecipe",
+      "type": "recipe",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "battery_charger_recipe"
+    },
+    {
+      "name": "BatteryChargerCharging",
+      "type": "block",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "battery_charger_charging"
+    },
+    {
+      "name": "BatteryChargerOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "battery_charger_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BatteryChargerChargingOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "battery_charger_charging_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -119,12 +203,14 @@
       "block.bots.bot_station": "Bot Station",
       "item.bots.battery": "Battery",
       "block.bots.battery_charger": "Battery Charger",
+      "block.bots.battery_charger_charging": "Battery Charger",
       "itemGroup.tabbots": "Bots"
     },
     "fr_fr": {
       "block.bots.bot_station": "Station de robot",
-      "item.bots.battery": "Battery",
-      "block.bots.battery_charger": "Battery Charger",
+      "item.bots.battery": "Batterie",
+      "block.bots.battery_charger": "Chargeur de batterie",
+      "block.bots.battery_charger_charging": "Chargeur de batterie",
       "itemGroup.tabbots": "Bots"
     }
   },

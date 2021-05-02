@@ -53,6 +53,7 @@ import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ChestContainer;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.FluidState;
@@ -76,30 +77,30 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
 
-import fr.sinikraft.bots.procedures.BatteryChargerOnBlockRightClickedProcedure;
-import fr.sinikraft.bots.itemgroup.BotsItemGroup;
+import fr.sinikraft.bots.procedures.BatteryChargerChargingOnBlockRightClickedProcedure;
 import fr.sinikraft.bots.BotsModElements;
 
 @BotsModElements.ModElement.Tag
-public class BatteryChargerBlock extends BotsModElements.ModElement {
-	@ObjectHolder("bots:battery_charger")
+public class BatteryChargerChargingBlock extends BotsModElements.ModElement {
+	@ObjectHolder("bots:battery_charger_charging")
 	public static final Block block = null;
-	@ObjectHolder("bots:battery_charger")
+	@ObjectHolder("bots:battery_charger_charging")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
-	public BatteryChargerBlock(BotsModElements instance) {
-		super(instance, 8);
+	public BatteryChargerChargingBlock(BotsModElements instance) {
+		super(instance, 10);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new TileEntityRegisterHandler());
 	}
 
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(BotsItemGroup.tab)).setRegistryName(block.getRegistryName()));
+		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
 	}
 	private static class TileEntityRegisterHandler {
 		@SubscribeEvent
 		public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
-			event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("battery_charger"));
+			event.getRegistry()
+					.register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("battery_charger_charging"));
 		}
 	}
 	@Override
@@ -114,7 +115,7 @@ public class BatteryChargerBlock extends BotsModElements.ModElement {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(5f, 6f).setLightLevel(s -> 0).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).setRequiresTool().notSolid().setOpaque((bs, br, bp) -> false));
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
-			setRegistryName("battery_charger");
+			setRegistryName("battery_charger_charging");
 		}
 
 		@Override
@@ -193,7 +194,7 @@ public class BatteryChargerBlock extends BotsModElements.ModElement {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(this, 1));
+			return Collections.singletonList(new ItemStack(BatteryChargerBlock.block, (int) (1)));
 		}
 
 		@Override
@@ -211,7 +212,7 @@ public class BatteryChargerBlock extends BotsModElements.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				BatteryChargerOnBlockRightClickedProcedure.executeProcedure($_dependencies);
+				BatteryChargerChargingOnBlockRightClickedProcedure.executeProcedure($_dependencies);
 			}
 			return ActionResultType.SUCCESS;
 		}
@@ -237,6 +238,18 @@ public class BatteryChargerBlock extends BotsModElements.ModElement {
 			super.eventReceived(state, world, pos, eventID, eventParam);
 			TileEntity tileentity = world.getTileEntity(pos);
 			return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
+		}
+
+		@Override
+		public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+			if (state.getBlock() != newState.getBlock()) {
+				TileEntity tileentity = world.getTileEntity(pos);
+				if (tileentity instanceof CustomTileEntity) {
+					InventoryHelper.dropInventoryItems(world, pos, (CustomTileEntity) tileentity);
+					world.updateComparatorOutputLevel(pos, this);
+				}
+				super.onReplaced(state, world, pos, newState, isMoving);
+			}
 		}
 	}
 
@@ -297,7 +310,7 @@ public class BatteryChargerBlock extends BotsModElements.ModElement {
 
 		@Override
 		public ITextComponent getDefaultName() {
-			return new StringTextComponent("battery_charger");
+			return new StringTextComponent("battery_charger_charging");
 		}
 
 		@Override

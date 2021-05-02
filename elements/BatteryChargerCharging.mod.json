@@ -9,7 +9,7 @@
     "textureRight": "",
     "textureBack": "",
     "renderType": 2,
-    "customModelName": "battery_charger:default",
+    "customModelName": "battery_charger:charging",
     "rotationMode": 1,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
@@ -75,11 +75,11 @@
     "hasGravity": false,
     "isWaterloggable": true,
     "creativeTab": {
-      "value": "CUSTOM:Bots"
+      "value": "No creative tab entry"
     },
     "destroyTool": "pickaxe",
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:BatteryCharger"
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
@@ -125,7 +125,7 @@
     "openGUIOnRightClick": false,
     "inventorySize": 1,
     "inventoryStackSize": 64,
-    "inventoryDropWhenDestroyed": false,
+    "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": false,
     "inventoryOutSlotIDs": [],
     "inventoryInSlotIDs": [],
@@ -138,7 +138,7 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onRightClicked": {
-      "name": "BatteryChargerOnBlockRightClicked"
+      "name": "BatteryChargerChargingOnBlockRightClicked"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
