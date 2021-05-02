@@ -1,1 +1,4 @@
-{}
+{
+  "block.bots.bot_station": "Bot Station",
+  "itemGroup.tabbots": "Bots"
+}

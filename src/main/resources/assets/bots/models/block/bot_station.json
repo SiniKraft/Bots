@@ -1,0 +1,9 @@
+{
+  "parent": "bots:custom/bot_station",
+  "textures": {
+    "all": "bots:blocks/iron_block",
+    "particle": "bots:blocks/iron_block",
+    "0": "bots:blocks/iron_block",
+    "1": "bots:blocks/gold_block"
+  }
+}
